@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Naeem Ullah - Frontend Developer learning Backend Development. Portfolio showcasing modern, responsive web development skills.">
+    <meta name="keywords" content="Naeem Ullah, Frontend Developer, JavaScript, Web Development, Portfolio, UI/UX">
+    <meta name="author" content="Naeem Ullah">
+    <title>Naeem Ullah - Frontend Developer | Modern Web Experiences</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Naeem Ullah - Frontend Developer">
+    <meta property="og:description" content="Frontend Developer learning Backend Development. Crafting modern, responsive web experiences.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Naeem Ullah - Frontend Developer">
+    <meta property="twitter:description" content="Frontend Developer learning Backend Development">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-primary': '#0a0a0a',
+                        'dark-secondary': '#1a1a1a',
+                        'dark-accent': '#2a2a2a',
+                        'gradient-start': '#667eea',
+                        'gradient-end': '#764ba2',
+                        'accent-blue': '#00d4ff',
+                        'accent-purple': '#a855f7'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark-primary text-white overflow-x-hidden">
+    <!-- Page Loader -->
+    <div id="page-loader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-dark-primary">
+        <div class="loader-content text-center">
+            <div class="loader-spinner mb-4"></div>
+            <h2 class="text-2xl font-bold bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent">
+                Loading...
+            </h2>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="custom-cursor"></div>
+    <!-- <div id="custom-cursor-follower" class="custom-cursor-follower"></div> -->
+
+    <nav class="fixed top-0 left-0 right-0 w-full z-50 glass-effect">
+    <div class="container mx-auto px-6 py-4"> <div class="flex justify-between items-center">
+            <div class="flex items-center">
+    <img 
+        src="assets/image_fec8f482-9a0f-488f-a321-374e10b0196b.png" 
+        alt="Logo" 
+        class="h-10 w-auto object-contain" 
+    />
+</div>
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#hero" class="nav-link hover:text-accent-blue transition-colors duration-300">Home</a>
+                <a href="#about" class="nav-link hover:text-accent-blue transition-colors duration-300">About</a>
+                <a href="#skills" class="nav-link hover:text-accent-blue transition-colors duration-300">Skills</a>
+                <a href="#stats" class="nav-link hover:text-accent-blue transition-colors duration-300">Stats</a>
+                <a href="#projects" class="nav-link hover:text-accent-blue transition-colors duration-300">Projects</a>
+                <a href="#contact" class="nav-link hover:text-accent-blue transition-colors duration-300">Contact</a>
+            </div>
+
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-2xl" style="display: flex !important; opacity: 1 !important; visibility: visible !important;">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-4">
+            <a href="#hero" class="block hover:text-accent-blue transition-colors duration-300">Home</a>
+            <a href="#about" class="block hover:text-accent-blue transition-colors duration-300">About</a>
+            <a href="#skills" class="block hover:text-accent-blue transition-colors duration-300">Skills</a>
+            <a href="#stats" class="block hover:text-accent-blue transition-colors duration-300">Stats</a>
+            <a href="#projects" class="block hover:text-accent-blue transition-colors duration-300">Projects</a>
+            <a href="#contact" class="block hover:text-accent-blue transition-colors duration-300">Contact</a>
+        </div>
+    </div> </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center animated-gradient">
+        <!-- Particles Background -->
+        <div class="particles">
+            <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 40%; animation-delay: 6s;"></div>
+            <div class="particle" style="left: 50%; animation-delay: 8s;"></div>
+            <div class="particle" style="left: 60%; animation-delay: 10s;"></div>
+            <div class="particle" style="left: 70%; animation-delay: 12s;"></div>
+            <div class="particle" style="left: 80%; animation-delay: 14s;"></div>
+            <div class="particle" style="left: 90%; animation-delay: 16s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center z-10">
+            <div data-aos="fade-up">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+                    <span class="block" data-aos="fade-up" data-aos-delay="100">Naeem</span>
+                    <span class="block bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent" data-aos="fade-up" data-aos-delay="200">Ullah</span>
+                </h1>
+                <h2 class="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-4" id="typed-text" data-aos="fade-up" data-aos-delay="300"></h2>
+                <p class="text-base sm:text-lg md:text-xl text-gray-400 mb-8 max-w-3xl mx-auto px-4" data-aos="fade-up" data-aos-delay="400">
+                    Crafting modern, responsive, and user-friendly web experiences with cutting-edge technologies.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center px-4" data-aos="fade-up" data-aos-delay="500">
+                    <a href="#projects" class="w-full sm:w-auto bg-gradient-to-r from-accent-blue to-accent-purple px-8 py-3 rounded-full text-white font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 text-center">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto border-2 border-accent-blue px-8 py-3 rounded-full text-accent-blue hover:bg-accent-blue hover:text-white transition-all duration-300 text-center">
+                        Get In Touch
+                    </a>
+                </div>
+                
+                <!-- Social Icons in Hero -->
+                <div class="flex justify-center space-x-6 mt-12" data-aos="fade-up" data-aos-delay="600">
+                    <a href="https://www.linkedin.com/in/naeem-ullah-a71b5a371?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="text-2xl sm:text-3xl hover:text-accent-blue transition-colors duration-300 hover:scale-110 transform">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" target="_blank" class="text-2xl sm:text-3xl hover:text-accent-blue transition-colors duration-300 hover:scale-110 transform">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:naeem.ullah@example.com" class="text-2xl sm:text-3xl hover:text-accent-blue transition-colors duration-300 hover:scale-110 transform">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="#" target="_blank" class="text-2xl sm:text-3xl hover:text-accent-blue transition-colors duration-300 hover:scale-110 transform">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
+            <a href="#about" class="text-white text-2xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-dark-secondary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                    About <span class="bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent">Me</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-accent-blue to-accent-purple mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left" data-aos="fade-right">
+                    <div class="w-48 sm:w-56 md:w-64 h-48 sm:h-56 md:h-64 mx-auto md:mx-0 mb-8 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple p-1 animate-glow tilt-card">
+                        <div class="w-full h-full rounded-full bg-dark-secondary overflow-hidden">
+                            <img src="assets/WhatsApp Image 2025-09-04 at 3.03.35 PM.jpeg" alt="Naeem Ullah Profile Photo" class="w-full h-full object-cover rounded-full">
+                        </div>
+                    </div>
+                </div>
+                
+               <div data-aos="fade-left">
+    <h3 class="text-xl sm:text-2xl font-semibold mb-6">Hello! I'm Naeem Ullah</h3>
+    <p class="text-gray-300 text-base sm:text-lg mb-6 leading-relaxed">
+        I am a passionate **Frontend Web Developer** currently pursuing an **Advanced Diploma in Software Engineering (ADSE)** at Aptech. 
+        Having successfully completed my first semester and now heading towards the finish line of my second, I have built a solid foundation in modern web technologies.
+    </p>
+    <p class="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
+        While my expertise lies in crafting visually stunning and responsive user interfaces, I am actively expanding my horizon into **Backend Development**. My goal is to become a proficient Full-Stack Developer, bridging the gap between elegant design and powerful functionality.
+    </p>
+    
+    <a href="#" class="inline-block bg-gradient-to-r from-accent-blue to-accent-purple px-8 py-3 rounded-full text-white font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+        <i class="fas fa-download mr-2"></i>
+        Download Resume
+    </a>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-dark-primary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                    My <span class="bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent">Skills</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-accent-blue to-accent-purple mx-auto"></div>
+            </div>
+            
+            <!-- Skill Cards -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="skill-card glass-effect p-4 sm:p-6 rounded-xl text-center tilt-card" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fab fa-html5 text-4xl sm:text-5xl text-orange-500 mb-3 sm:mb-4"></i>
+                    <h3 class="text-base sm:text-lg font-semibold mb-2">HTML5</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="95"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card glass-effect p-4 sm:p-6 rounded-xl text-center tilt-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fab fa-css3-alt text-4xl sm:text-5xl text-blue-500 mb-3 sm:mb-4"></i>
+                    <h3 class="text-base sm:text-lg font-semibold mb-2">CSS3</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="90"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card glass-effect p-4 sm:p-6 rounded-xl text-center tilt-card" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fab fa-js-square text-4xl sm:text-5xl text-yellow-500 mb-3 sm:mb-4"></i>
+                    <h3 class="text-base sm:text-lg font-semibold mb-2">JavaScript</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="85"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card glass-effect p-4 sm:p-6 rounded-xl text-center tilt-card" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fab fa-bootstrap text-4xl sm:text-5xl text-purple-500 mb-3 sm:mb-4"></i>
+                    <h3 class="text-base sm:text-lg font-semibold mb-2">Bootstrap</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="88"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card glass-effect p-4 sm:p-6 rounded-xl text-center tilt-card" data-aos="zoom-in" data-aos-delay="500">
+                    <i class="fab fa-github text-4xl sm:text-5xl text-gray-400 mb-3 sm:mb-4"></i>
+                    <h3 class="text-base sm:text-lg font-semibold mb-2">GitHub</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="80"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card glass-effect p-4 sm:p-6 rounded-xl text-center tilt-card" data-aos="zoom-in" data-aos-delay="600">
+                    <i class="fab fa-js text-4xl sm:text-5xl text-teal-500 mb-3 sm:mb-4"></i>
+                    <h3 class="text-base sm:text-lg font-semibold mb-2">jQuery</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="82"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card glass-effect p-4 sm:p-6 rounded-xl text-center tilt-card" data-aos="zoom-in" data-aos-delay="700">
+                    <i class="fas fa-paint-brush text-4xl sm:text-5xl text-pink-500 mb-3 sm:mb-4"></i>
+                    <h3 class="text-base sm:text-lg font-semibold mb-2">UI/UX</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="87"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card glass-effect p-4 sm:p-6 rounded-xl text-center tilt-card" data-aos="zoom-in" data-aos-delay="800">
+                    <i class="fas fa-mobile-alt text-4xl sm:text-5xl text-green-500 mb-3 sm:mb-4"></i>
+                    <h3 class="text-base sm:text-lg font-semibold mb-2">Responsive</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="92"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter Section -->
+    <section id="stats" class="py-20 bg-dark-secondary">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-effect p-6 sm:p-8 rounded-xl tilt-card">
+                        <i class="fas fa-project-diagram text-4xl sm:text-5xl text-accent-blue mb-3 sm:mb-4"></i>
+                        <h3 class="text-3xl sm:text-4xl font-bold mb-2">
+                            <span class="counter" data-target="4">0</span>+
+                        </h3>
+                        <p class="text-sm sm:text-base text-gray-400">Projects Completed</p>
+                    </div>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-effect p-6 sm:p-8 rounded-xl tilt-card">
+                        <i class="fas fa-code text-4xl sm:text-5xl text-accent-purple mb-3 sm:mb-4"></i>
+                        <h3 class="text-3xl sm:text-4xl font-bold mb-2">
+                            <span class="counter" data-target="10000">0</span>+
+                        </h3>
+                        <p class="text-sm sm:text-base text-gray-400">Lines of Code</p>
+                    </div>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-effect p-6 sm:p-8 rounded-xl tilt-card">
+                        <i class="fas fa-trophy text-4xl sm:text-5xl text-accent-blue mb-3 sm:mb-4"></i>
+                        <h3 class="text-3xl sm:text-4xl font-bold mb-2">
+                            <span class="counter" data-target="2">0</span>
+                        </h3>
+                        <p class="text-sm sm:text-base text-gray-400">Competitions</p>
+                    </div>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="glass-effect p-6 sm:p-8 rounded-xl tilt-card">
+                        <i class="fas fa-certificate text-4xl sm:text-5xl text-accent-purple mb-3 sm:mb-4"></i>
+                        <h3 class="text-3xl sm:text-4xl font-bold mb-2">
+                            <span class="counter" data-target="1">0</span>
+                        </h3>
+                        <p class="text-sm sm:text-base text-gray-400">Certificate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-dark-primary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                    My <span class="bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent">Projects</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-accent-blue to-accent-purple mx-auto"></div>
+            </div>
+            
+            <!-- Project Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 px-4" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active px-4 sm:px-6 py-2 rounded-full glass-effect hover:bg-accent-blue transition-all duration-300 text-sm sm:text-base" data-filter="all">
+                    All
+                </button>
+                <button class="filter-btn px-4 sm:px-6 py-2 rounded-full glass-effect hover:bg-accent-blue transition-all duration-300 text-sm sm:text-base" data-filter="ecommerce">
+                    E-Commerce
+                </button>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 sm:gap-8">
+                <div class="project-card glass-effect rounded-xl overflow-hidden tilt-card" data-category="web" data-aos="flip-left" data-aos-delay="100">
+    <div class="project-image h-48 bg-gradient-to-br from-blue-600 to-red-600 flex items-center justify-center relative overflow-hidden">
+        <i class="fas fa-trophy text-6xl text-white"></i>
+        <div class="project-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <div class="text-center">
+                <p class="text-white mb-4 font-bold">Sports History Portal</p>
+                <div class="flex space-x-4 justify-center">
+                    <a href="#" class="text-white hover:text-accent-blue text-2xl"><i class="fas fa-eye"></i></a>
+                    <a href="#" class="text-white hover:text-accent-blue text-2xl"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">Sportify - Semester-e-Project</h3>
+        <p class="text-gray-300 mb-4 text-sm sm:text-base">
+            A collaborative group project developed for my first semester final. This portal explores the rich history and evolution of various sports, built with a focus on structured data and clean UI.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-accent-blue bg-opacity-20 text-accent-blue rounded-full text-xs">HTML5</span>
+            <span class="px-3 py-1 bg-accent-purple bg-opacity-20 text-accent-purple rounded-full text-xs">CSS3</span>
+            <span class="px-3 py-1 bg-accent-blue bg-opacity-20 text-accent-blue rounded-full text-xs">JavaScript</span>
+            <span class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-400 rounded-full text-xs">Group Collaboration</span>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3">
+            <a href="https://sportify-naeem.netlify.app/" class="flex-1 bg-gradient-to-r from-accent-blue to-accent-purple px-4 py-2 rounded-lg text-center text-white font-semibold hover:shadow-lg transition-all duration-300">Live Demo</a>
+            <a href="#" class="flex-1 border-2 border-accent-blue px-4 py-2 rounded-lg text-center text-accent-blue hover:bg-accent-blue hover:text-white transition-all duration-300">GitHub</a>
+        </div>
+    </div>
+</div>
+                
+               <div class="project-card glass-effect rounded-xl overflow-hidden tilt-card" data-category="ecommerce" data-aos="flip-left" data-aos-delay="200">
+    <div class="project-image h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
+        <i class="fas fa-shopping-bag text-6xl text-white"></i>
+        <div class="project-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <div class="text-center">
+                <p class="text-white mb-4 font-bold">Nova Marketplace</p>
+                <div class="flex space-x-4 justify-center">
+                    <a href="https://nova-marketplace.netlify.app/" target="_blank" class="text-white hover:text-accent-blue text-2xl">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-accent-blue text-2xl">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-6">
+        <h3 class="text-xl font-semibold mb-3">Nova Marketplace - IT Vision '25</h3>
+        <p class="text-gray-300 mb-4 text-sm sm:text-base">
+            Represented my center in the <b>Aptech IT Vision City-wide Competition</b>. Inspired by Daraz and OLX, this project focuses on a high-performance frontend for a multi-vendor marketplace, featuring a modern UI and seamless navigation.
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="px-3 py-1 bg-accent-blue bg-opacity-20 text-accent-blue rounded-full text-xs">HTML5</span>
+            <span class="px-3 py-1 bg-accent-purple bg-opacity-20 text-accent-purple rounded-full text-xs"> CSS</span>
+            <span class="px-3 py-1 bg-accent-blue bg-opacity-20 text-accent-blue rounded-full text-xs">Bootstrap 5</span>
+            <span class="px-3 py-1 bg-accent-purple bg-opacity-20 text-accent-purple rounded-full text-xs">Tailwind CSS</span>
+            <span class="px-3 py-1 bg-accent-blue bg-opacity-20 text-accent-blue rounded-full text-xs">JavaScript</span>
+            <span class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-400 rounded-full text-xs">Competition Entry</span>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3">
+            <a href="https://nova-marketplace.netlify.app/" target="_blank" class="flex-1 bg-gradient-to-r from-accent-blue to-accent-purple px-4 py-2 rounded-lg text-center text-white font-semibold hover:shadow-lg transition-all duration-300">
+                Live Demo
+            </a>
+            <a href="#" class="flex-1 border-2 border-accent-blue px-4 py-2 rounded-lg text-center text-accent-blue hover:bg-accent-blue hover:text-white transition-all duration-300">
+                GitHub
+            </a>
+        </div>
+    </div>
+</div>
+                
+                <!-- Project 3: Campus Connect -->
+                <div class="project-card glass-effect rounded-xl overflow-hidden tilt-card" data-category="web" data-aos="flip-left" data-aos-delay="300">
+                    <div class="project-image h-48 bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-graduation-cap text-6xl text-white"></i>
+                        <div class="project-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center">
+                                <p class="text-white mb-4">Campus Connect</p>
+                                <div class="flex space-x-4 justify-center">
+                                    <a href="https://campus-connect-naeem.netlify.app/" target="_blank" class="text-white hover:text-accent-blue text-2xl">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="#" class="text-white hover:text-accent-blue text-2xl">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Campus Connect</h3>
+                        <p class="text-gray-300 mb-4">
+                            Frontend social platform for university students built with HTML, CSS, JavaScript, and Bootstrap. 
+                            TecWize worldwide competition participant (received certificate).
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-accent-blue bg-opacity-20 text-accent-blue rounded-full text-sm">HTML</span>
+                            <span class="px-3 py-1 bg-accent-purple bg-opacity-20 text-accent-purple rounded-full text-sm">CSS</span>
+                            <span class="px-3 py-1 bg-accent-blue bg-opacity-20 text-accent-blue rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-accent-purple bg-opacity-20 text-accent-purple rounded-full text-sm">Bootstrap</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="https://campus-connect-naeem.netlify.app/" target="_blank" class="flex-1 bg-gradient-to-r from-accent-blue to-accent-purple px-4 py-2 rounded-lg text-center text-white font-semibold hover:shadow-lg transition-all duration-300">
+                                Live Demo
+                            </a>
+                            <a href="#" class="flex-1 border-2 border-accent-blue px-4 py-2 rounded-lg text-center text-accent-blue hover:bg-accent-blue hover:text-white transition-all duration-300">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Sweet Bakery -->
+                <div class="project-card glass-effect rounded-xl overflow-hidden tilt-card" data-category="ecommerce" data-aos="flip-left" data-aos-delay="400">
+                    <div class="project-image h-48 bg-gradient-to-br from-pink-500 to-yellow-500 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-birthday-cake text-6xl text-white"></i>
+                        <div class="project-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center">
+                                <p class="text-white mb-4">Sweet Bakery</p>
+                                <div class="flex space-x-4 justify-center">
+                                    <a href="#" class="text-white hover:text-accent-blue text-2xl">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="#" class="text-white hover:text-accent-blue text-2xl">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Sweet cake house</h3>
+                        <p class="text-gray-300 mb-4">
+                            Frontend E-commerce website for a bakery built with HTML, CSS, JavaScript, and Bootstrap. 
+                            Features product catalog, shopping cart, and modern design.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-accent-blue bg-opacity-20 text-accent-blue rounded-full text-sm">HTML</span>
+                            <span class="px-3 py-1 bg-accent-purple bg-opacity-20 text-accent-purple rounded-full text-sm">CSS</span>
+                            <span class="px-3 py-1 bg-accent-blue bg-opacity-20 text-accent-blue rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-accent-purple bg-opacity-20 text-accent-purple rounded-full text-sm">Bootstrap</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="https://naeem-sweet-cake-house.netlify.app/" class="flex-1 bg-gradient-to-r from-accent-blue to-accent-purple px-4 py-2 rounded-lg text-center text-white font-semibold hover:shadow-lg transition-all duration-300">
+                                Live Demo
+                            </a>
+                            <a href="#" class="flex-1 border-2 border-accent-blue px-4 py-2 rounded-lg text-center text-accent-blue hover:bg-accent-blue hover:text-white transition-all duration-300">
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark-secondary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                    Get In <span class="bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent">Touch</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-accent-blue to-accent-purple mx-auto"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="glass-effect p-6 sm:p-8 rounded-xl" data-aos="fade-right">
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-6">Send Me a Message</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required
+                                   class="w-full bg-dark-accent border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-accent-blue transition-colors duration-300">
+                        </div>
+                        <div>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required
+                                   class="w-full bg-dark-accent border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-accent-blue transition-colors duration-300">
+                        </div>
+                        <div>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required
+                                   class="w-full bg-dark-accent border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-accent-blue transition-colors duration-300">
+                        </div>
+                        <div>
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required
+                                      class="w-full bg-dark-accent border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-accent-blue transition-colors duration-300 resize-none"></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full bg-gradient-to-r from-accent-blue to-accent-purple px-8 py-3 rounded-lg text-white font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="space-y-8" data-aos="fade-left">
+                    <div>
+                        <h3 class="text-xl sm:text-2xl font-semibold mb-6">Let's Connect</h3>
+                        <p class="text-gray-300 text-base sm:text-lg mb-8">
+                            I'm always interested in new opportunities and exciting projects. 
+                            Let's discuss how we can work together to bring your ideas to life!
+                        </p>
+                    </div>
+                    
+                    <!-- Contact Details -->
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p class="text-gray-400 break-all">naeemktk003@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Phone</h4>
+                                <p class="text-gray-400">+92 3293980655</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Location</h4>
+                                <p class="text-gray-400">Pakistan,karachi</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div>
+                        <h4 class="font-semibold mb-4">Follow Me</h4>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://www.linkedin.com/in/naeem-ullah-a71b5a371?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="w-12 h-12 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </a>
+                            <a href="#" target="_blank" class="w-12 h-12 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                                <i class="fab fa-github text-white"></i>
+                            </a>
+                            <a href="#" target="_blank" class="w-12 h-12 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                                <i class="fab fa-twitter text-white"></i>
+                            </a>
+                            <a href="mailto:naeem.ullah@example.com" class="w-12 h-12 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-envelope text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-primary py-8 border-t border-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400 mb-4">
+                © 2024 Naeem Ullah - Frontend Developer. All rights reserved.
+            </p>
+            <p class="text-gray-500 text-sm">
+                Designed & Developed with <i class="fas fa-heart text-red-500"></i> by Naeem Ullah
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full flex items-center justify-center text-white opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 z-40">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Typed.js for Typing Animation -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- VanillaTilt.js for 3D Tilt Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

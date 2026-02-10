@@ -1,0 +1,562 @@
+/* ================================================
+   NAEEM ULLAH - OPTIMIZED PORTFOLIO CSS
+   Modern, Professional & Performance Optimized
+   ================================================ */
+
+/* ============ CSS VARIABLES ============ */
+:root {
+    /* Color Palette */
+    --dark-primary: #0f0f1e;
+    --dark-secondary: #1a1a2e;
+    --dark-accent: #16213e;
+    --accent-blue: #0ea5e9;
+    --accent-cyan: #06b6d4;
+    --accent-purple: #8b5cf6;
+    --accent-pink: #ec4899;
+    --text-light: #f1f5f9;
+    --text-gray: #94a3b8;
+    --border-gray: #334155;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #ec4899 100%);
+    --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+}
+
+/* ============ BASE STYLES ============ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-light);
+    background: var(--dark-primary);
+    overflow-x: hidden;
+}
+
+/* ============ CUSTOM CURSOR (Desktop Only) ============ */
+@media (min-width: 769px) {
+    body {
+        cursor: none;
+    }
+    
+    .custom-cursor {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--accent-cyan);
+        position: fixed;
+        pointer-events: none;
+        z-index: 10000;
+        transition: transform 0.15s ease, background 0.3s ease;
+        mix-blend-mode: difference;
+        box-shadow: 0 0 15px var(--accent-cyan);
+    }
+
+    .custom-cursor-follower {
+        width: 44px;
+        height: 44px;
+        border: 2px solid var(--accent-cyan);
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 768px) {
+    .custom-cursor, 
+    .custom-cursor-follower { 
+        display: none; 
+    }
+}
+
+/* ============ PAGE LOADER ============ */
+#page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    background: linear-gradient(135deg, var(--dark-primary) 0%, var(--dark-secondary) 100%);
+}
+
+#page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid var(--accent-cyan);
+    border-right: 4px solid var(--accent-purple);
+    border-radius: 50%;
+    animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============ GLASS EFFECT ============ */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.glass-effect:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(14, 165, 233, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ============ ANIMATED GRADIENT BACKGROUND ============ */
+.animated-gradient {
+    background: linear-gradient(-45deg, 
+        #0f0f1e, 
+        #1a1a2e, 
+        #16213e, 
+        #0ea5e9,
+        #8b5cf6
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    position: relative;
+}
+
+.animated-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.08), transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.5; }
+}
+
+/* ============ PARTICLE ANIMATION (Desktop Only) ============ */
+@media (min-width: 769px) {
+    .particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    .particle {
+        position: absolute;
+        background: rgba(14, 165, 233, 0.6);
+        border-radius: 50%;
+        width: 3px;
+        height: 3px;
+        animation: particleFloat 20s infinite linear;
+        box-shadow: 0 0 8px rgba(14, 165, 233, 0.4);
+    }
+}
+
+@media (max-width: 768px) {
+    .particles { 
+        display: none; 
+    }
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        transform: translateY(-100px) translateX(150px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ============ SCROLL INDICATOR ============ */
+.scroll-indicator {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { 
+        transform: translateY(0) translateX(-50%); 
+    }
+    40% { 
+        transform: translateY(-12px) translateX(-50%); 
+    }
+    60% { 
+        transform: translateY(-6px) translateX(-50%); 
+    }
+}
+
+/* ============ GLOW EFFECTS ============ */
+.animate-glow {
+    animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 15px rgba(14, 165, 233, 0.3),
+                    0 0 30px rgba(14, 165, 233, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.4),
+                    0 0 40px rgba(139, 92, 246, 0.3);
+    }
+}
+
+/* ============ SKILL PROGRESS BARS ============ */
+.skill-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+    position: relative;
+}
+
+.skill-progress {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 10px;
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+    position: relative;
+}
+
+/* ============ SKILL CARDS ============ */
+.skill-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(14, 165, 233, 0.3);
+}
+
+/* ============ PROJECT CARDS ============ */
+.project-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(14, 165, 233, 0.3);
+}
+
+.project-overlay {
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============ FILTER BUTTONS ============ */
+.filter-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+}
+
+.filter-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 6px 15px rgba(14, 165, 233, 0.4);
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ============ NAVIGATION ============ */
+.nav-link {
+    position: relative;
+    font-weight: 500;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* ============ BUTTONS ============ */
+button, .btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+button::before, .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    z-index: -1;
+}
+
+button:hover::before, .btn:hover::before {
+    transform: translateX(0);
+}
+
+/* ============ FORMS ============ */
+input:focus,
+textarea:focus {
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+    border-color: var(--accent-cyan);
+}
+
+/* ============ STATS SECTION ============ */
+.counter {
+    display: inline-block;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============ SCROLLBAR ============ */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-secondary);
+}
+
+/* ============ SELECTION ============ */
+::selection {
+    background: var(--accent-cyan);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--accent-cyan);
+    color: white;
+}
+
+/* ============ BACK TO TOP ============ */
+#back-to-top {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--gradient-primary);
+}
+
+#back-to-top.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#back-to-top:hover {
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.5);
+}
+
+/* ============ MOBILE MENU ============ */
+/* Mobile Menu Button ko hamesha visible rakhen */
+#mobile-menu-btn {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+#mobile-menu-btn i {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-block !important;
+}
+
+#mobile-menu {
+    animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============ TYPOGRAPHY ============ */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Inter', sans-serif;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============ TILT EFFECT (Desktop Only) ============ */
+@media (max-width: 768px) {
+    .tilt-card {
+        transform-style: preserve-3d;
+    }
+}
+
+/* ============ RESPONSIVE OPTIMIZATIONS ============ */
+
+/* Tablet Screens */
+@media (max-width: 1024px) {
+    .skill-card:hover,
+    .project-card:hover {
+        transform: translateY(-6px) scale(1.02);
+    }
+}
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 70px;
+    }
+    
+    .skill-card:hover,
+    .project-card:hover {
+        transform: translateY(-4px) scale(1.01);
+    }
+    
+    .glass-effect:hover {
+        transform: translateY(-1px);
+    }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+    .loader-spinner {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* ============ PERFORMANCE ============ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============ PRINT STYLES ============ */
+@media print {
+    .particles, nav, .scroll-indicator,
+    #back-to-top, #custom-cursor,
+    #custom-cursor-follower {
+        display: none !important;
+    }
+}
+
+/* ============ UTILITY CLASSES ============ */
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.shadow-glow {
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.3);
+}
+
+.hover-lift {
+    transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+}
+
+/* ============ FADE IN ANIMATION ============ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+#custom-cursor-follower {
+    display: none !important;
+}
+
+
+
+/* Page ko side pe khisakne se rokne ke liye */
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden !important; /* Ye sab se zaroori line hai */
+    position: relative;
+}
+
+/* Nav ko screen ke width ke mutabiq lock karne ke liye */
+nav {
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+}
