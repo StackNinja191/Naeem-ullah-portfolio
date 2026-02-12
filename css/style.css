@@ -602,22 +602,3 @@ nav {
     100% { transform: scale(1); opacity: 0.8; }
 }
 
-/* ============ IPHONE ROTATION FIX ============ */
-@media (max-width: 768px) {
-    .project-card, .service-card, .skill-card {
-        /* Purane Safari ke liye transforms ko reset karna */
-        -webkit-transform: none !important;
-        transform: none !important;
-        -webkit-perspective: none !important;
-        perspective: none !important;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-    }
-    
-    /* Animation ke waqt jo cards stuck ho jate hain unke liye */
-    [data-aos] {
-        -webkit-transform: none !important;
-        transform: none !important;
-        transition-property: opacity !important; /* Sirf fade ho, rotate nahi */
-    }
-}
