@@ -156,13 +156,9 @@ function initAOS() {
         easing: 'ease-out-back',
         once: true,
         mirror: false,
-        offset: 120, // Card thoda screen ke andar aaye tab animation shuru ho
-        disable: false // Ensure karein ke ye 'false' ho
-    });
-    
-    // Refresh AOS after all images load (Bohat zaroori hai)
-    window.addEventListener('load', function() {
-        AOS.refresh();
+        offset: 50,          // Mobile pe thora jaldi trigger ho jaye
+        disable: false,      // Isay 'false' rakhen taake mobile pe chale
+        disableMutationObserver: false
     });
 }
 

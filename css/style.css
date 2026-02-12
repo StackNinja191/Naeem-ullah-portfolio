@@ -601,29 +601,3 @@ nav {
     50% { transform: scale(1.1); opacity: 1; }
     100% { transform: scale(1); opacity: 0.8; }
 }
-/* ============ UNIVERSAL ANIMATION FIX ============ */
-
-/* Card ko 3D render karne ke liye base style */
-.project-card, .service-card {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    /* Hardware acceleration */
-    will-change: transform, opacity;
-}
-
-/* Sirf purane iPhones/Safari ke liye specific fix */
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-    /* Jab animation khatam ho jaye to card ko seedha kar do */
-    [data-aos].aos-animate {
-        -webkit-transform: perspective(1000px) rotateY(0) !important;
-        transform: perspective(1000px) rotateY(0) !important;
-    }
-}
-
-/* Standard browsers ke liye default behavior (Android/Chrome) */
-_:-ms-fullscreen, :root [data-aos].aos-animate {
-    -webkit-transform: none;
-    transform: none;
-}
