@@ -22,24 +22,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ============ PAGE LOADER (FIXED & FASTER) ===========
+// ============ PAGE LOADER (FIXED & FASTER) ===========
 function initPageLoader() {
     const loader = document.getElementById('page-loader');
     
     // Agar loader HTML me mojood hai tab hi chalaye
     if (loader) {
-        // Website load hote hi foran gayab ho jaye (Wait time 800 se kam kar ke 300 kar dia)
         window.addEventListener('load', function() {
             setTimeout(() => {
                 loader.classList.add('hidden');
-            }, 300); 
+            }, 2000); // <--- Yahan 300 ki jaga 2500 kar dein (Ab ye 2.5 seconds rukega)
         });
 
-        // Backup: Agar internet slow ho, to 3 second baad zabardasti hata de
+        // Backup: Agar internet slow ho, to 5 second baad zabardasti hata de
+        // (Isay bhi 3000 se barha kar 5000 kar dein taake ye pehle wale se takraye nahi)
         setTimeout(() => {
             loader.classList.add('hidden');
-        }, 3000);
+        }, 5000);
     }
-    
 }
 
 // ============ CUSTOM CURSOR (Desktop Only) ============

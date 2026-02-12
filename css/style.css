@@ -560,3 +560,44 @@ nav {
     left: 0 !important;
     right: 0 !important;
 }
+
+/* ============ PAGE LOADER LOGO ============ */
+#page-loader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    background: var(--dark-primary); /* Background same as body */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Logo ki styling */
+.loader-logo {
+    width: 100px; /* Logo ka size yahan se adjust karein */
+    height: auto;
+    object-fit: contain;
+    animation: logoPulse 1.5s infinite ease-in-out;
+}
+
+/* Logo Animation (Chota bada hona) */
+@keyframes logoPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+        filter: drop-shadow(0 0 5px rgba(14, 165, 233, 0.4));
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+        filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.6));
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+        filter: drop-shadow(0 0 5px rgba(14, 165, 233, 0.4));
+    }
+}
