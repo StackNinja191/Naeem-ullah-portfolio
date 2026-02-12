@@ -153,12 +153,11 @@ function initTypingAnimation() {
 function initAOS() {
     AOS.init({
         duration: 1000,
-        easing: 'ease-out-back',
+        easing: 'ease-out-back', // Ye zyada smooth lagta hai
         once: true,
         mirror: false,
-        offset: 50,          // Mobile pe thora jaldi trigger ho jaye
-        disable: false,      // Isay 'false' rakhen taake mobile pe chale
-        disableMutationObserver: false
+        offset: 50, // Thoda pehle hi start ho jaye
+        disableMutationObserver: false,
     });
 }
 

@@ -602,3 +602,32 @@ nav {
     100% { transform: scale(1); opacity: 0.8; }
 }
 
+/* ============ IPHONE SMOOTH ANIMATION FIX ============ */
+.project-card, .service-card, .skill-card {
+    /* Is se card shake nahi karega aur pichli side nazar nahi aayegi */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+/* Agar AOS ki wajah se stuck ho raha hai to usey 2D kar dete hain */
+[data-aos^="zoom"], [data-aos^="fade"], [data-aos^="flip"] {
+    -webkit-transition-property: -webkit-transform, opacity !important;
+    transition-property: transform, opacity !important;
+}
+
+/* Purane iPhone par 3D rotation ko 2D translation mein badalna */
+@media (max-width: 768px) {
+    [data-aos="flip-left"], [data-aos="flip-right"], [data-aos="zoom-in-up"] {
+        -webkit-transform: translateY(20px) !important;
+        transform: translateY(20px) !important;
+    }
+    
+    .aos-animate[data-aos="flip-left"], 
+    .aos-animate[data-aos="flip-right"],
+    .aos-animate[data-aos="zoom-in-up"] {
+        -webkit-transform: translateY(0) !important;
+        transform: translateY(0) !important;
+    }
+}
