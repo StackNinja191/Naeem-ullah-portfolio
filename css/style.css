@@ -601,33 +601,29 @@ nav {
     50% { transform: scale(1.1); opacity: 1; }
     100% { transform: scale(1); opacity: 0.8; }
 }
+/* ============ UNIVERSAL ANIMATION FIX ============ */
 
-/* ============ IPHONE SMOOTH ANIMATION FIX ============ */
-.project-card, .service-card, .skill-card {
-    /* Is se card shake nahi karega aur pichli side nazar nahi aayegi */
+/* Card ko 3D render karne ke liye base style */
+.project-card, .service-card {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
+    /* Hardware acceleration */
+    will-change: transform, opacity;
 }
 
-/* Agar AOS ki wajah se stuck ho raha hai to usey 2D kar dete hain */
-[data-aos^="zoom"], [data-aos^="fade"], [data-aos^="flip"] {
-    -webkit-transition-property: -webkit-transform, opacity !important;
-    transition-property: transform, opacity !important;
+/* Sirf purane iPhones/Safari ke liye specific fix */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    /* Jab animation khatam ho jaye to card ko seedha kar do */
+    [data-aos].aos-animate {
+        -webkit-transform: perspective(1000px) rotateY(0) !important;
+        transform: perspective(1000px) rotateY(0) !important;
+    }
 }
 
-/* Purane iPhone par 3D rotation ko 2D translation mein badalna */
-@media (max-width: 768px) {
-    [data-aos="flip-left"], [data-aos="flip-right"], [data-aos="zoom-in-up"] {
-        -webkit-transform: translateY(20px) !important;
-        transform: translateY(20px) !important;
-    }
-    
-    .aos-animate[data-aos="flip-left"], 
-    .aos-animate[data-aos="flip-right"],
-    .aos-animate[data-aos="zoom-in-up"] {
-        -webkit-transform: translateY(0) !important;
-        transform: translateY(0) !important;
-    }
+/* Standard browsers ke liye default behavior (Android/Chrome) */
+_:-ms-fullscreen, :root [data-aos].aos-animate {
+    -webkit-transform: none;
+    transform: none;
 }
