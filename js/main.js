@@ -134,7 +134,7 @@ function initTypingAnimation() {
     if (typedElement && typeof Typed !== 'undefined') {
         new Typed('#typed-text', {
             strings: [
-                'Frontend Developer',
+                'Frontend web Developer',
                 'UI/UX Enthusiast',
                 'Web Designer',
                 'Creative Coder'
